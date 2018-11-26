@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <div class="fixed-bottom">
-    <div class="jumbotron">
+    <div class="">
         <h3>OrbisBooks</h3>
-        <p>"Há livros escritos para evitar espaços vazios na estante" - Carlos Dummond </p>
+        <p>"Cattle die and kinsmen die, thyself too soon must die, but one thing never, I ween, will die; fair fame of one who has earned." - Odin</p>
         <hr class="my-4">
         <h5>Informações:</h5>
         <ul class="list-inline">
