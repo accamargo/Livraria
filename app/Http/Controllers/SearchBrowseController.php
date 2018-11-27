@@ -12,25 +12,13 @@ class SearchBrowseController extends Controller
 {
    public function searchByCategory(Request $request){
 
-
-    //$bookcategories = DB::table('Bookcategories')->where("CategoryName",'=',$request->search_box_browse)->first();
-    $bookcategoriesbooks =  Bookcategories::where("CategoryName",'=',$request->search_box_browse)->first()->bookcategoriesbooks()->get();
+    $bookdescriptions = Bookdescriptions::where('tittle','like','%'.$request->search_box_browse.'%')->get();
     
-
-
-
-            //$bookcategories = DB::table('Bookcategories')->where("CategoryName",'=',$request->search_box_browse)->first();
-            //$bookcategoriesbooks = Bookcategoriesbooks::all();
-            //$bookdescriptions = Bookdescriptions::all();
-            //$merged = $bookcategoriesbooks->merge($bookdescriptions)->where('CategoryID','=',$bookcategories->CategoryID)->get();
-
-
-            //$bookcategoriesbooks =DB::table('Bookcategoriesbooks')->where('CategoryID','=',$bookcategories->CategoryID)->get();
-          //  $bookdescriptions = DB::table('Bookdescriptions')->where('ISBN','=',$bookcategoriesbooks->ISBN)->get();
+    //$bookcategoriesbooks =  Bookcategories::where("CategoryName",'like',$request->search_box_browse)->first()->bookcategoriesbooks()->get();
+    
             return view('searchbrowse',[
-                'bookcategoriesbooks' => $bookcategoriesbooks//,
-                //'bookdescriptions' => $bookdescriptions,
-                //'supermerge'=>$merged
+               // 'bookcategoriesbooks' => $bookcategoriesbooks
+                'bookdescriptions' => $bookdescriptions
     
             ]);
    }

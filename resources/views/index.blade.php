@@ -28,6 +28,7 @@
         
         <a href = "/productPage/{{$bookdescription->ISBN}}">{{$bookdescription->tittle}}</a>
         <a> {{$bookdescription->description}}</a>
+        
         </li>
         <br>
     @endforeach
