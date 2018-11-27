@@ -13,3 +13,5 @@
 
 
 Route::get('/', 'HomeController@index');
+Route::get('/productPage/{isbn}','ProductPageController@returnProductdata');
+Route::post('/searchbrowse','SearchBrowseController@searchByCategory');

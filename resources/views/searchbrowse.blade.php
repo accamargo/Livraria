@@ -21,19 +21,21 @@
 </div>
 
     <ul>
-    @foreach($bookdescriptions as $bookdescription)
+    @foreach($bookcategoriesbooks as $bookcategoriesbook)
         
         <br>
-        <li><img src="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$bookdescription->ISBN}}.01.THUMBZZZ.jpg">
+        <li><img src="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$bookcategoriesbook->ISBN}}.01.THUMBZZZ.jpg">
         
-        <a href = "/productPage/{{$bookdescription->ISBN}}">{{$bookdescription->tittle}}</a>
-        <a> {{$bookdescription->description}}</a>
+        <a href = "/productPage/{{$bookcategoriesbook->ISBN}}">{{$bookcategoriesbook->ISBN}}</a>
+        
         </li>
         <br>
     @endforeach
 
     </ul>
 </body>
+
 @include('footer')
 </html>
+
 
