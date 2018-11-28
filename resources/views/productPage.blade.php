@@ -22,7 +22,14 @@
        Edition:<p>{{$book->edtion}}</p>
        Description: <p> {{$book->description}}</p>     
         <br>
-   
+     <form action="/shoppingcart" method='post'>
+     <input type="hidden" value ='{{$book->ISBN}}' name = 'valorisbn' >  
+     <input type="number" name ='qtd'>
+     <button type='submit'  name = 'addItem' >Add to Cart</button>
+     {{csrf_field()}}
+     </form>
+
+    
 </body>
 @include('footer')
 </html>

@@ -11,26 +11,32 @@ use \App\Models\Bookauthors;
 class SearchBrowseController extends Controller
 {
    public function searchByCategory(Request $request){
-      $books = Bookdescriptions::where('tittle','like','%'.$request->search_box_browse.'%')->get();
-      //$bookcategoriesbooks =  Bookcategories::where("CategoryName",'like',$request->search_box_browse)->first()->bookcategoriesbooks()->get();
+
+    $books = Bookdescriptions::where('tittle','like','%'.$request->search_box_browse.'%')->get();
     
-      return view('searchbrowse',[
-         // 'bookcategoriesbooks' => $bookcategoriesbooks
-         'bookdescriptions' => $books
-      ]);
+
+            return view('searchbrowse',[
+               // 'bookcategoriesbooks' => $bookcategoriesbooks
+               'books' => $books
+                //'bookauthors' => $bookauthors
+            ]);
    }
 
-   public function category($categoryID){
-      $bookcategoriesbooks = BookCategories::where('CategoryID', '=', $categoryID)->first()->bookcategoriesbooks()->get();
+  
+   public function category($CategoryID){
 
-      foreach($bookcategoriesbooks as $bookcategoriesbook){
-        $book = array_push($book,$bookcategoriesbook->bookdescriptions()->first());
-      }
+       // $book = Bookdescriptions::join('Bookcategoriesbooks','Bookdescriptions.ISBN','=',)
 
-      return view('searchbrowse',[
-         'bookdescriptions' => $book
-      ]);
 
+        $books= Bookcategoriesbooks::where('CategoryID','=',$CategoryID)->join('Bookdescriptions','Bookcategoriesbooks.ISBN','=','Bookdescriptions.ISBN')->get();
+
+      //  return view('searchbrowse',[
+            // 'bookcategoriesbooks' => $bookcategoriesbooks
+         //   'bookdescriptions' => $books
+             //'bookauthors' => $bookauthors
+       //  ]);
+        return view('searchbrowse', compact('books'));
    }
+
    
 }
