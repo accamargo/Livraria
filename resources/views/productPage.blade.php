@@ -9,11 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-
-
-   
-    
-        
         <br>
         <a href ="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$book->ISBN}}.01.LZZZZZZZ.jpg">
         <img src="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$book->ISBN}}.01.MZZZZZZZ.jpg">
@@ -25,12 +20,9 @@
        Publisher: <p>{{$book->publisher}}</p>
        Pages:<p>{{$book->pages}}</p>
        Edition:<p>{{$book->edtion}}</p>
-       Description: <p> {{$book->description}}</p>
-        
+       Description: <p> {{$book->description}}</p>     
         <br>
    
-
-    
 </body>
 @include('footer')
 </html>

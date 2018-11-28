@@ -13,7 +13,7 @@ class Bookauthorsbooks extends Model
     }
     
     function bookauthors(){
-
+        
         return $this->belongsTo('\App\Models\Bookauthors','AuthorID','AuthorID');
     }
 }
