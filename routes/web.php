@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//HomeController
+Route::get('/', 'HomeController@index');
+Route::get('/about', 'HomeController@about');
+
+//ProductController
+Route::get('/productPage/{isbn}','ProductPageController@returnProductdata');
+
+//SearchController
+Route::post('/searchbrowse','SearchBrowseController@searchByCategory');
+Route::get('/searchbrowse/{categoryID}','SearchBrowseController@category');
+
+
