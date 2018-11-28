@@ -16,7 +16,7 @@
             <li><img src="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$book->ISBN}}.01.THUMBZZZ.jpg">
                 <a href="/productPage/{{$book->ISBN}}">{{$book->tittle}}</a>
                 <br>
-                <a>{{$book->description}}</a>
+                <a>{{!!$book->description!!}}</a>
             </li>
             <br>
         @endforeach

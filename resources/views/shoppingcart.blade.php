@@ -25,7 +25,7 @@
     @endforeach
 
     </ul>
-   <a href='/checkout03'>Finalizar pedido</a>
+   <a href='/checkout02'>Finalizar pedido</a>
    
    
 
