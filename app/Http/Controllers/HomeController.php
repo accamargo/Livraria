@@ -8,6 +8,24 @@ use \App\Models\Bookcategories;
 
 class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+   
+    /**
+    *public function __construct()
+    *{
+    *    $this->middleware('auth');
+    *}
+    */
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(){
         
         $bookdescriptions = Bookdescriptions::all();
@@ -18,5 +36,4 @@ class HomeController extends Controller
             'bookdescriptions' => $bookdescriptions
         ]);
     }
-
 }
