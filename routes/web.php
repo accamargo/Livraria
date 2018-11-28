@@ -20,4 +20,6 @@ Route::get('/productPage/{isbn}','ProductPageController@returnProductdata');
 
 //SearchController
 Route::post('/searchbrowse','SearchBrowseController@searchByCategory');
+Route::get('/searchbrowse/{categoryID}','SearchBrowseController@category');
+
 

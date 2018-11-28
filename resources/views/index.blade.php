@@ -15,7 +15,7 @@
                     <div class="container">
                         @foreach ($bookcategories as $bookcategory)
                         <li class="list-inline">
-                            <a href="#">{{$bookcategory->CategoryName}}</a>
+                        <a href="/searchbrowse/{{$bookcategory->CategoryID}}">{{$bookcategory->CategoryName}}</a>
                         </li>
                         @endforeach
                     </div>
