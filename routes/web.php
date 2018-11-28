@@ -10,7 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//HomeController
+Route::get('/about', 'HomeController@about');
+Route::get('/', 'HomeController@index')->name('home');
+
+
+//ProductController
+Route::get('/productPage/{isbn}','ProductPageController@returnProductdata');
+
+//SearchController
+Route::post('/searchbrowse','SearchBrowseController@searchByCategory');
+Route::get('/searchbrowse/{CategoryID}','SearchBrowseController@category');
+
+//ShoppingCartController
+Route::post('/shoppingcart','ShoppingCartController@addToCart');
+Route::get('/checkout03', 'ShoppingCartController@CreateOrder');
+
+
+
