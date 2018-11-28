@@ -12,18 +12,31 @@ class SearchBrowseController extends Controller
 {
    public function searchByCategory(Request $request){
 
-    $bookdescriptions = Bookdescriptions::where('tittle','like','%'.$request->search_box_browse.'%')->get();
+    $books = Bookdescriptions::where('tittle','like','%'.$request->search_box_browse.'%')->get();
     
-    //$bookcategoriesbooks =  Bookcategories::where("CategoryName",'like',$request->search_box_browse)->first()->bookcategoriesbooks()->get();
-    
+
             return view('searchbrowse',[
                // 'bookcategoriesbooks' => $bookcategoriesbooks
-                'bookdescriptions' => $bookdescriptions
-    
+               'books' => $books
+                //'bookauthors' => $bookauthors
             ]);
    }
 
   
+   public function category($CategoryID){
+
+       // $book = Bookdescriptions::join('Bookcategoriesbooks','Bookdescriptions.ISBN','=',)
+
+
+        $books= Bookcategoriesbooks::where('CategoryID','=',$CategoryID)->join('Bookdescriptions','Bookcategoriesbooks.ISBN','=','Bookdescriptions.ISBN')->get();
+
+      //  return view('searchbrowse',[
+            // 'bookcategoriesbooks' => $bookcategoriesbooks
+         //   'bookdescriptions' => $books
+             //'bookauthors' => $bookauthors
+       //  ]);
+        return view('searchbrowse', compact('books'));
+   }
 
    
 }

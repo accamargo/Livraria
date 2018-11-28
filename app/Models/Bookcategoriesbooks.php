@@ -15,7 +15,7 @@ class Bookcategoriesbooks extends Model
 
     function bookdescriptions(){
 
-        return $this->belongsTo('\App\Models\Bookdescriptions','ISBN','ISBN');
+        return $this->belongsToMany('\App\Models\Bookdescriptions','ISBN','ISBN');
     }
 
 }

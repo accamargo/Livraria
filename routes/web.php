@@ -15,3 +15,6 @@
 Route::get('/', 'HomeController@index');
 Route::get('/productPage/{isbn}','ProductPageController@returnProductdata');
 Route::post('/searchbrowse','SearchBrowseController@searchByCategory');
+Route::get('/searchbrowse/{CategoryID}','SearchBrowseController@category');
+Route::post('/shoppingcart','ShoppingCartController@addToCart');
+Route::get('/checkout03', 'ShoppingCartController@CreateOrder');
