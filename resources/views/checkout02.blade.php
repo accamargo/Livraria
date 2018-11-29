@@ -12,7 +12,12 @@
 <body>
 <br><br><br><br><br><br>
 
-<a>Confirme seu pedido madafuca!<a>
+<form action="">
+
+<a href='/checkout03'>Confirme seu pedido madafuca!<a>
+
+</form>
+
 
 <a>yo info</a>
 
