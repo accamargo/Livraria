@@ -13,6 +13,8 @@ use Session;
 class ShoppingCartController extends Controller
 {
     //
+    private $frete = 5;
+
     public function remove(){
         return view('index');
     }
@@ -35,9 +37,11 @@ class ShoppingCartController extends Controller
         //cria produto para ser armazenado no banco
         $BookorderitemsAntigo = Bookorderitems1::where('orderID','=',$order)->first();
         if($BookorderitemsAntigo == null){
-        $produto->price = 10 + ($request->qtd * $bookdescription->price);
+            $this->frete = 10;
+            $produto->price = $this->frete + ($request->qtd * $bookdescription->price);
         }else{
-            $produto->price = 5 + $request->qtd * $bookdescription->price;
+            $this->frete =5;
+            $produto->price = $this->frete + $request->qtd * $bookdescription->price;
         }
         //coloca as informacoes do pedido a partir dos valores recuperados
         $produto->orderID = Session::get('orderID');
@@ -67,10 +71,11 @@ class ShoppingCartController extends Controller
     public function viewCart(){
         $produto = Session::get('orderID');
         $bookorderitems = Bookorderitems1::where('orderID','=',$produto)->get();
- 
+        
             return view('shoppingcart',[
                 //retorna pra view do shopping cart lista de produtos 
-                 'bookorderitems' => $bookorderitems
+                 'bookorderitems' => $bookorderitems,
+                 'frete' => $this->frete
             ]);   
         
     }
