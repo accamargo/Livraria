@@ -20,7 +20,7 @@
 
 
 <a>yo info</a>
-
+<a href="/orderhistory">HIsotirco</a>
 ID:<a>{{$usuarioinfo->id}}</a>
 Name:<a>{{$usuarioinfo->name}}</a>
 E-mail:<a>{{$usuarioinfo->email}}</a>
