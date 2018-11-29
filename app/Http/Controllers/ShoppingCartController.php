@@ -10,6 +10,9 @@ use Session;
 class ShoppingCartController extends Controller
 {
     //
+    public function remove(){
+        return view('index');
+    }
 
     public function addToCart(Request $request){
         $produto = new Bookorderitems1();
@@ -43,12 +46,22 @@ class ShoppingCartController extends Controller
         ]);
     }
     
-
    public  function CreateOrder(){
-
 
         $pedido = new Bookorders();
         $pedido->custID = 10;
         $pedido->save();
     }
+
+    public function viewCart(){
+        $produto = Session::get('orderID');
+        $Bookorderitems = Bookorderitems1::where('orderID','=',$produto)->get();
+
+        return view('shoppingcart',[
+            //retorna pra view do shopping cart lista de produtos 
+             'bookorderitems' => $Bookorderitems
+
+        ]);
+    }
+
 }

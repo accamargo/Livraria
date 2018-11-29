@@ -14,7 +14,6 @@ class SearchBrowseController extends Controller
 
     $books = Bookdescriptions::where('tittle','like','%'.$request->search_box_browse.'%')->get();
     
-
             return view('searchbrowse',[
                // 'bookcategoriesbooks' => $bookcategoriesbooks
                'books' => $books

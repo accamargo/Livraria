@@ -9,27 +9,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
+    <div class="container p-5 mt-5">
 
+        <h3>Produtos</h3><br>
 
-    <ul>
-    @foreach($bookorderitems as $bookorderitem)
-        
-        <br>
-        <li><img src="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$bookorderitem->ISBN}}.01.THUMBZZZ.jpg">
-        <a href="/productPage/{{$bookorderitem->ISBN}}">{{$bookorderitem->qtd}}</a>
-        <br>
-        <a>{{$bookorderitem->price}}</a>
-        
-        </li>
-        <br>
-    @endforeach
+        <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Item Code</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach($bookorderitems as $bookorderitem)
+                    <tr>
+                        <th scope="row"><img src="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$bookorderitem->ISBN}}.01.THUMBZZZ.jpg"></th>
+                        <td><a href="/productPage/{{$bookorderitem->ISBN}}">{{$bookorderitem->ISBN}}</a></td>
+                        <td><input type="number" name ='qtd' value="{{$bookorderitem->qtd}}"></td>
+                        <td>{{$bookorderitem->price}}</td>
+                        <td><button type="submit" name="removeItem" method="POST" action="/remove">Remover</button></td>
+                    </tr>    
+                    @endforeach 
+                </tbody>
+              </table>
 
-    </ul>
-   <a href='/checkout03'>Finalizar pedido</a>
-   
-   
-
-
+        <a href='/checkout03'>Finalizar pedido</a>
+    <div>
 </body>
 
 @include('footer')

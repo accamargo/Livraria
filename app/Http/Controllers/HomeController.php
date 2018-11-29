@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index(){
         
-        $bookdescriptions = Bookdescriptions::all();
+        $bookdescriptions = Bookdescriptions::inRandomOrder()->take(4)->get();
         $bookcategories = Bookcategories::all();
 
         return view('index',[

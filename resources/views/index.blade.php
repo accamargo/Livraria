@@ -23,10 +23,15 @@
         </div>
         <div class="col-md-9">
             @foreach($bookdescriptions as $bookdescription)
-            <li class="list-inline pb-2">
-                <img src="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$bookdescription->ISBN}}.01.THUMBZZZ.jpg">
-                {{$bookdescription->tittle}}
-            </li> 
+            <div class="row">
+                <div class="col-md-1">
+                    <img src="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$bookdescription->ISBN}}.01.THUMBZZZ.jpg">
+                </div>
+                <div class="col-md-9">
+                    <a href="/productPage/{{$bookdescription->ISBN}}">{{$bookdescription->tittle}}</a>
+                    <p>{!!str_limit($bookdescription->description, 200),''!!}<a href="/productPage/{{$bookdescription->ISBN}}">more</a> </p>
+                </div>
+            </div><br>
             @endforeach
         </div>
     </div>

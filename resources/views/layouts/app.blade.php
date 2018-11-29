@@ -55,7 +55,7 @@
                                 {{csrf_field()}}
                         </form>
                         
-                        <li class="nav-item"><a class="nav-link" href="#">
+                        <li class="nav-item"><a class="nav-link" href="/shoppingcart ">
                             <i class="fa fa-shopping-cart"></i> Cart</a></li>
                         <!-- Authentication Links -->
                         @guest
