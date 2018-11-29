@@ -37,7 +37,7 @@ class CheckoutController extends Controller
 
         Mail::send(['text'=>'checkoutEmail'],['name','Gartok'],function($message){
 
-            $message->to(auth()->user()->email,'To you')->subject('KGB FILES');
+            $message->to(auth()->user()->email,'To you')->subject('Confimação');
             $message->from('jacobguy7600@gmail.com','Teste');
         });
 
