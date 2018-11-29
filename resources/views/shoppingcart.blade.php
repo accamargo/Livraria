@@ -12,10 +12,6 @@
     <div class="container p-5 mt-5">
 
         <h3>Produtos</h3><br>
-        
-        @if ($message = "Carrinho vazio")
-            <p>{{$message}}</p><br>
-        @else
  
         <table class="table table-hover">
                 <thead>
@@ -42,9 +38,7 @@
 
     </ul>
         <a href='/checkout02'>Finalizar pedido</a>
-        @endif
-   
-
+    
 
 </body>
 

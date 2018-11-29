@@ -28,12 +28,11 @@
             </div>
         </div>
 
-        <h5>Description:</h5> <p> {!!$book->description!!}</p>     
-            <br>
+        <h5>Description:</h5> <p> {!!$book->description!!}</p><br>
         <form action="/shoppingcart" method='post'>
         <input type="hidden" value ='{{$book->ISBN}}' name = 'valorisbn' >  
         <input type="number" name ='qtd'>
-        <button type='submit'  name = 'addItem' >Add to Cart</button>
+        <button type='submit' name = 'addItem' >Add to Cart</button>
         {{csrf_field()}}
         </form>
     </div>

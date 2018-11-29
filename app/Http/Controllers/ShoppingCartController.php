@@ -7,6 +7,7 @@ use \App\Models\Bookorderitems1;
 use \App\Models\Bookdescriptions;
 use \App\Models\Bookorders;
 use Session;
+
 class ShoppingCartController extends Controller
 {
     //
@@ -39,11 +40,10 @@ class ShoppingCartController extends Controller
         $produto->save();//salva na tabela de ordem de items
 
         $Bookorderitems = Bookorderitems1::where('orderID','=',$order)->get();
-        return view('shoppingcart',[
-            //retorna pra view do shopping cart lista de produtos 
-             'bookorderitems' => $Bookorderitems
-
-        ]);
+        
+        $message = "Seus produtos";
+        return $this->viewCart();
+        
     }
     
    public  function CreateOrder(){
@@ -55,23 +55,14 @@ class ShoppingCartController extends Controller
     }
 
     public function viewCart(){
-        $message;
         $produto = Session::get('orderID');
         $Bookorderitems = Bookorderitems1::where('orderID','=',$produto)->get();
-
-        if($produto == null){
-            $message = "Carrinho vazio";
-            return view('shoppingcart',[
-                'message' => $message
-            ]);    
-        }else{
-            $message = "Seus produtos";
+ 
             return view('shoppingcart',[
                 //retorna pra view do shopping cart lista de produtos 
-                 'bookorderitems' => $Bookorderitems,
-                 'message' => $message
+                 'bookorderitems' => $Bookorderitems
             ]);   
-        }
+        
     }
 
 }
