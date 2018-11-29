@@ -27,7 +27,7 @@ Route::get('/searchbrowse/{CategoryID}','SearchBrowseController@category');
 //ShoppingCartController
 Route::post('/shoppingcart','ShoppingCartController@addToCart');
 Route::get('/checkout02','CheckoutController@checklogin');
-Route::get('/checkout03', 'ShoppingCartController@CreateOrder');
-
+Route::get('/checkout03', 'ShoppingCartController@CreateOrder','ShoppingCartController@sandmail');
+Route::get('/checkoutEmail','CheckoutController@sandmail');
 
 

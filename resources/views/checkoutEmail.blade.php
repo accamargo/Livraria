@@ -1,5 +1,3 @@
-@include('header')
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +9,8 @@
 </head>
 <body>
 <br><br><br><br><br><br>
-<a href='/checkoutEmail'> EMAIL <a>
+<a>PEDIDO REALIZADO! VOCE DEVE 500000000 DOLARES!
+    <a>
 
 </body>
 <br><br><br><br><br><br>
