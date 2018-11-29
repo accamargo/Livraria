@@ -29,11 +29,15 @@ class CheckoutController extends Controller
 
     public function sandmail(){
 
+        
+        
         Mail::send(['text'=>'checkoutEmail'],['name','Gartok'],function($message){
 
-            $message->to('jac_sayurimichelucci@hotmail.com','To Jac')->subject('KGB FILES');
+            $message->to(auth()->user()->email,'To Jac')->subject('KGB FILES');
             $message->from('jacobguy7600@gmail.com','Teste');
         });
+
+        return  view('/emailEnviado');
     
 
     }

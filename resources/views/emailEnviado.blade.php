@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +9,8 @@
 </head>
 <body>
 <br><br><br><br><br><br>
-<a href='/checkoutEmail'> EMAIL <a>
-{{ auth()->user()->id }}
-{{ auth()->user()->email }}
+<a href='/checkoutEmail'> EMAIL ENVIADO COM SUCESSO!!!!!!!!<a>
+
 </body>
 <br><br><br><br><br><br>
 @include('footer')

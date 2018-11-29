@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use \App\Models\Bookorderitems1;
 use \App\Models\Bookdescriptions;
 use \App\Models\Bookorders;
+use \App\Models\Users;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class ShoppingCartController extends Controller
@@ -47,11 +49,14 @@ class ShoppingCartController extends Controller
     }
     
    public  function CreateOrder(){
-
+        $usuarioautenticado = auth()->user();
+        $usuarioinfo = Users::where('id','=',$usuarioautenticado->id)->first();
         $pedido = new Bookorders();
-        $pedido->custID = 10;
+        $pedido->custID = $usuarioinfo->id;
         $pedido->save();
+        Session::forget('orderID');
         return view('checkout03');
+        
     }
 
     public function viewCart(){
