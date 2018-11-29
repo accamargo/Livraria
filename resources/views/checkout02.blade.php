@@ -1,31 +1,58 @@
 @extends('layouts.app')
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>Check</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-<br><br><br><br><br><br>
+    @php
+        $total = 0
+    @endphp
+    <div class="container p-5 mt-5">
 
-<form action="">
+        <h3>Confirme seus dados</h3><br>
 
-<a href='/checkout03'>Confirme seu pedido madafuca!<a>
+        <p>Nome:{{$usuarioinfo->name}}
+        <br>E-mail:{{$usuarioinfo->email}}
+        </p>
 
-</form>
+        <table class="table table-hover">
+                <tbody>
+                  <tr class="table-active">
+                    <th scope="col"></th>
+                    <th scope="col">Item Code</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Preço</th>
+                  </tr>
+                    @foreach($bookorderitems as $bookorderitem)
+                    <tr class="table-active">
+                        <th scope="row"><img src="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$bookorderitem->ISBN}}.01.THUMBZZZ.jpg"></th>
+                        <td>{{$bookorderitem->ISBN}}</td>
+                        <td>{{$bookorderitem->qtd}}</td>
+                        <td>{{$bookorderitem->price}}</td>
+                    </tr> 
+                    @php
+                        $total = $bookorderitem->price + $total;
+                    @endphp    
+                    @endforeach 
+                    <tr class="table-active">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th scope="col">${{$total}}</th>
+                    </tr>  
 
-
-<a>yo info</a>
-
-ID:<a>{{$usuarioinfo->id}}</a>
-Name:<a>{{$usuarioinfo->name}}</a>
-E-mail:<a>{{$usuarioinfo->email}}</a>
+                </tbody>
+            </table>
+        <br>
+        <a class="btn btn-primary" href='/checkout03'>Confirmar Pedido<a>
+    </div>
 
 </body>
-<br><br><br><br><br><br>
+
 @include('footer')
 </html>

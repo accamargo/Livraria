@@ -10,8 +10,10 @@
 </head>
 <body>
     <div class="container p-5 mt-5">
-
-        <h3>Produtos</h3><br>
+    @php
+        $total = 0
+    @endphp
+    <br><h3>Produtos</h3><br>
  
         <table class="table table-hover">
                 <thead>
@@ -20,7 +22,6 @@
                     <th scope="col">Item Code</th>
                     <th scope="col">Quantidade</th>
                     <th scope="col">Preço</th>
-                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -29,17 +30,24 @@
                         <th scope="row"><img src="https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/{{$bookorderitem->ISBN}}.01.THUMBZZZ.jpg"></th>
                         <td><a href="/productPage/{{$bookorderitem->ISBN}}">{{$bookorderitem->ISBN}}</a></td>
                         <td><input type="number" name ='qtd' value="{{$bookorderitem->qtd}}"></td>
-                        <td>{{$bookorderitem->price}}</td>
-                        <td><button type="submit" name="removeItem" method="POST" action="/remove">Remover</button></td>
-                    </tr>    
+                        <td><p>R${{$bookorderitem->price}}</p></td>
+                    </tr>
+                    @php
+                        $total = $bookorderitem->price + $total;
+                    @endphp    
                     @endforeach 
+                    <thead>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>R${{$total}}</th>
+                    </thead>  
+
                 </tbody>
               </table>
 
-    </ul>
-        <a href='/checkout02'>Finalizar pedido</a>
-    
-
+        <a href='/checkout02' class="btn btn-primary">Finalizar pedido</a>
+    </div>
 </body>
 
 @include('footer')

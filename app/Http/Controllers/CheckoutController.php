@@ -4,20 +4,24 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use \App\Models\Users;
 use Illuminate\Http\Request;
+use \App\Models\Bookorderitems1;
 use Mail;
+use Session;
+
 class CheckoutController extends Controller
 {
     function checklogin(){
+        $produto = Session::get('orderID');
+        $bookorderitems = Bookorderitems1::where('orderID','=',$produto)->get();
 
         if(Auth::check()){
-
           $usuarioautenticado = auth()->user();
           $usuarioinfo = Users::where('id','=',$usuarioautenticado->id)->first();
           
           return view('checkout02',[
             //retorna pra view do shopping cart lista de produtos 
-             'usuarioinfo' => $usuarioinfo
-
+             'usuarioinfo' => $usuarioinfo,
+             'bookorderitems' => $bookorderitems
         ]);
         }else{
 
@@ -29,8 +33,6 @@ class CheckoutController extends Controller
 
     public function sandmail(){
 
-        
-        
         Mail::send(['text'=>'checkoutEmail'],['name','Gartok'],function($message){
 
             $message->to(auth()->user()->email,'To Jac')->subject('KGB FILES');

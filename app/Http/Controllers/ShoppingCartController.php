@@ -61,11 +61,11 @@ class ShoppingCartController extends Controller
 
     public function viewCart(){
         $produto = Session::get('orderID');
-        $Bookorderitems = Bookorderitems1::where('orderID','=',$produto)->get();
+        $bookorderitems = Bookorderitems1::where('orderID','=',$produto)->get();
  
             return view('shoppingcart',[
                 //retorna pra view do shopping cart lista de produtos 
-                 'bookorderitems' => $Bookorderitems
+                 'bookorderitems' => $bookorderitems
             ]);   
         
     }

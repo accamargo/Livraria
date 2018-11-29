@@ -26,10 +26,10 @@ Route::get('/searchbrowse/{CategoryID}','SearchBrowseController@category');
 //ShoppingCartController
 Route::get('/shoppingcart','ShoppingCartController@viewCart');
 Route::post('/shoppingcart','ShoppingCartController@addToCart');
+
+//CheckoutController
 Route::get('/checkout02','CheckoutController@checklogin');
 Route::get('/checkoutEmail','CheckoutController@sandmail');
 Route::get('/checkout03', 'ShoppingCartController@CreateOrder');
-//CheckoutController
-Route::get('/checkout02','CheckoutController@checklogin');
 
 

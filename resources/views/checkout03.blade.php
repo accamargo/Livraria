@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>Enviar email</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-<br><br><br><br><br><br>
-<a href='/checkoutEmail'> EMAIL <a>
-{{ auth()->user()->id }}
-{{ auth()->user()->email }}
+    <div class="container p-5 mt-5"><br><br>
+        <h4>Enviar email para:</h4>
+        {{ auth()->user()->email }}
+        <br><br>
+        <a class="btn btn-primary" href='/checkoutEmail'>Enviar<a>             
+    </div><br><br>
 </body>
-<br><br><br><br><br><br>
 @include('footer')
 </html>
