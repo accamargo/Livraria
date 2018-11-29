@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use \App\Models\Users;
+use \App\Models\Bookorders;
+use \App\Models\Bookorderitems1;
+use \App\Models\Bookdescriptions;
 use Illuminate\Http\Request;
 use \App\Models\Bookorderitems1;
 use Mail;
@@ -42,6 +45,17 @@ class CheckoutController extends Controller
         return  view('/emailEnviado');
     
 
+    }
+
+
+    public function historico(){
+//$books= Bookcategoriesbooks::where('CategoryID','=',$CategoryID)->join('Bookdescriptions','Bookcategoriesbooks.ISBN','=','Bookdescriptions.ISBN')->get();
+            
+        $historyorders = Bookorders::where('custID','=',auth()->user()->id)
+        ->join('Bookorderitems1','Bookorders.orderID','=','Bookorderitems1.orderID')
+        ->join('Bookdescriptions','Bookorderitems1.ISBN','=','Bookdescriptions.ISBN')->get();    
+         
+        return view('/orderhistory', compact('historyorders'));
     }
 
 

@@ -52,7 +52,6 @@
         <a class="btn btn-primary" href='/checkout03'>Confirmar Pedido<a>
     </div>
 
-</body>
-
+<a href="/orderhistory">HIsotirco</a>
 @include('footer')
 </html>

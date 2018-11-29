@@ -32,4 +32,6 @@ Route::get('/checkout02','CheckoutController@checklogin');
 Route::get('/checkoutEmail','CheckoutController@sandmail');
 Route::get('/checkout03', 'ShoppingCartController@CreateOrder');
 
+Route::get('/orderhistory','CheckoutController@historico');
+
 

@@ -33,12 +33,17 @@ class ShoppingCartController extends Controller
          //recupera descricao do livro atraves do valor isbn submetido pelo formulario do botao addtocart em productpage.blade
         $bookdescription = Bookdescriptions::where('ISBN','=',$request->valorisbn)->first();
         //cria produto para ser armazenado no banco
-        
+        $BookorderitemsAntigo = Bookorderitems1::where('orderID','=',$order)->first();
+        if($BookorderitemsAntigo == null){
+        $produto->price = 10 + ($request->qtd * $bookdescription->price);
+        }else{
+            $produto->price = 5 + $request->qtd * $bookdescription->price;
+        }
         //coloca as informacoes do pedido a partir dos valores recuperados
         $produto->orderID = Session::get('orderID');
         $produto->qtd   = $request->qtd;
         $produto->ISBN  = $request->valorisbn;
-        $produto->price = $request->qtd * $bookdescription->price;
+        
         $produto->save();//salva na tabela de ordem de items
 
         $Bookorderitems = Bookorderitems1::where('orderID','=',$order)->get();
