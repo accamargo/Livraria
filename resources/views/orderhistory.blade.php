@@ -1,8 +1,8 @@
-
+@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Search</title>
+    <title>Historico</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,7 +18,7 @@
                 <div class="col-md-9">
                     <a href="/productPage/{{$historyorder->ISBN}}">{{$historyorder->tittle}}</a>
                     <p>{!!str_limit($historyorder->description, 200),''!!}<a href="/productPage/{{$historyorder->ISBN}}">more</a> </p>
-                    <p>{{$historyorder->ISBN}}</p>
+                    <p>Codigo de Produto:{{$historyorder->ISBN}}</p>
                 </div>
         </div><br>
         @endforeach
