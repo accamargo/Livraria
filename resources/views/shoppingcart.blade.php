@@ -46,7 +46,7 @@
                 </tbody>
               </table>
             <p>Observação:
-                O primeiro pedido tem um frete de R$10,00 enquanto os demais possui R$5,00  
+                O primeiro pedido tem um frete de R$10,00 enquanto os demais possuem R$5,00  
             <br>Frete:R${{$frete}} por produto           
             </p>
         <a href='/checkout02' class="btn btn-primary">Finalizar pedido</a>

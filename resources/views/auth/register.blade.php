@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container " data-spy="scroll">
+    <div class="row justify-content-center" data-spy="scroll">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
+                
+                <div class="card-body scroll">
+                    
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -38,6 +39,62 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                                <label for="street" class="col-md-4 col-form-label text-md-right">{{ __('Street') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="street" type="text" class="form-control{{ $errors->has('street') ? ' is-invalid' : '' }}" name="street" value="{{ old('street') }}" required autofocus>
+    
+                                    @if ($errors->has('street'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('street') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                    <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+        
+                                    <div class="col-md-6">
+                                        <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" required autofocus>
+        
+                                        @if ($errors->has('city'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('city') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="state" class="col-md-4 col-form-label text-md-right">{{ __('State') }}</label>
+            
+                                        <div class="col-md-6">
+                                            <input id="state" type="text" class="form-control{{ $errors->has('state') ? ' is-invalid' : '' }}" name="state" value="{{ old('state') }}" required autofocus>
+            
+                                            @if ($errors->has('state'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('state') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                            <label for="zip" class="col-md-4 col-form-label text-md-right">{{ __('Zip') }}</label>
+                
+                                            <div class="col-md-6">
+                                                <input id="zip" type="text" class="form-control{{ $errors->has('zip') ? ' is-invalid' : '' }}" name="zip" value="{{ old('zip') }}" required autofocus>
+                
+                                                @if ($errors->has('zip'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('zip') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
