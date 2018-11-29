@@ -55,26 +55,23 @@ class ShoppingCartController extends Controller
     }
 
     public function viewCart(){
-
+        $message;
         $produto = Session::get('orderID');
         $Bookorderitems = Bookorderitems1::where('orderID','=',$produto)->get();
 
-        return view('shoppingcart',[
-            //retorna pra view do shopping cart lista de produtos 
-             'bookorderitems' => $Bookorderitems
-
-        ]);
-    }
-
-    public function viewCart(){
-        $produto = Session::get('orderID');
-        $Bookorderitems = Bookorderitems1::where('orderID','=',$produto)->get();
-
-        return view('shoppingcart',[
-            //retorna pra view do shopping cart lista de produtos 
-             'bookorderitems' => $Bookorderitems
-
-        ]);
+        if($produto == null){
+            $message = "Carrinho vazio";
+            return view('shoppingcart',[
+                'message' => $message
+            ]);    
+        }else{
+            $message = "Seus produtos";
+            return view('shoppingcart',[
+                //retorna pra view do shopping cart lista de produtos 
+                 'bookorderitems' => $Bookorderitems,
+                 'message' => $message
+            ]);   
+        }
     }
 
 }
