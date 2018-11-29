@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@include('header')
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +10,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-PEDIDO REALIZADO!
+<br><br><br><br><br><br>
+
+<a>Confirme seu pedido madafuca!<a>
+
+<a>yo info</a>
+
+ID:<a>{{$usuarioinfo->id}}</a>
+Name:<a>{{$usuarioinfo->name}}</a>
+E-mail:<a>{{$usuarioinfo->email}}</a>
 
 </body>
-
+<br><br><br><br><br><br>
 @include('footer')
 </html>

@@ -36,8 +36,12 @@
                 </tbody>
               </table>
 
-        <a href='/checkout03'>Finalizar pedido</a>
-    <div>
+    </ul>
+   <a href='/checkout02'>Finalizar pedido</a>
+   
+   
+
+
 </body>
 
 @include('footer')

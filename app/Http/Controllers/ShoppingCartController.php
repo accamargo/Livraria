@@ -51,6 +51,19 @@ class ShoppingCartController extends Controller
         $pedido = new Bookorders();
         $pedido->custID = 10;
         $pedido->save();
+        return view('checkout03');
+    }
+
+    public function viewCart(){
+
+        $produto = Session::get('orderID');
+        $Bookorderitems = Bookorderitems1::where('orderID','=',$produto)->get();
+
+        return view('shoppingcart',[
+            //retorna pra view do shopping cart lista de produtos 
+             'bookorderitems' => $Bookorderitems
+
+        ]);
     }
 
     public function viewCart(){
