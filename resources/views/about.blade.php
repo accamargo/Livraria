@@ -8,7 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <div class="container p-5 mt-5">
+    <div class="row p-5 mt-5">
+        @include('sidebar')
+        <div class="col-md-9">
         <h3>OrbisBooks</h3><br>
 
         <p> Criada em 2018, feita com o proposito de mandar bem no trabalho.
@@ -26,6 +28,7 @@
             estamos nós interagindo e abstraindo o conhecimento de outras pessoas 
             sobre os mais diversos assuntos.
         </p>
+        </div>
     </div>
 
 </body>

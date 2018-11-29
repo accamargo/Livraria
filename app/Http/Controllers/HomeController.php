@@ -38,7 +38,10 @@ class HomeController extends Controller
     }
 
     public function about(){
-        return view('about');
+        $bookcategories = Bookcategories::all();
+        return view('about',[
+            'bookcategories' => $bookcategories
+        ]);
     }
 
 }
